@@ -1,0 +1,7 @@
+export(
+   # download data from eurostat 
+   getEurostatRaw, getEurostatRCV, getEurostatTOC, grepEurostatTOC, getEurostatDictionary,
+   # download data from google maps
+   getGoogleMapsAddress
+
+)
