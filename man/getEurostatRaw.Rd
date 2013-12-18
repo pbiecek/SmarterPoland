@@ -7,11 +7,17 @@ Download a dataset from the eurostat database (ec.europa.eu/eurostat).
 Download a dataset from the eurostat database. The dataset is transformed into the tabular format.
 }
 \usage{
-getEurostatRaw(kod = "educ_iste")
+getEurostatRaw(kod = "educ_iste", rowRegExp=NULL, colRegExp=NULL)
 }
 \arguments{
   \item{kod}{
    A code name for the data set of interested. See the table of contents of eurostat datasets for more details.
+}
+  \item{rowRegExp}{
+   If not NULL this regular expression will be used to filter rows out of downloaded file.
+}
+  \item{colRegExp}{
+   If not NULL this regular expression will be used to filter collumns out of downloaded file.
 }
 }
 \value{

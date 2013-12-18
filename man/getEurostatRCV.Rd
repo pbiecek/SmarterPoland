@@ -7,11 +7,14 @@ Download a dataset from the eurostat database (ec.europa.eu/eurostat).
 Download a dataset from the eurostat database. The dataset is transformed into the molten / row-column-value format (RCV).
 }
 \usage{
-getEurostatRCV(kod = "educ_iste")
+getEurostatRCV(kod = "educ_iste", ...)
 }
 \arguments{
   \item{kod}{
    A code name for the data set of interested. See the table of contents of eurostat datasets for more details.
+}
+  \item{...}{
+   Other parameters that are passed to getEurostatRaw().
 }
 }
 \value{
