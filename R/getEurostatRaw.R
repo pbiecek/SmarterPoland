@@ -4,7 +4,7 @@ function(kod = "educ_iste") {
   tfile <- tempfile()
 #  download and read file
   download.file(adres, tfile)
-  dat <- read.table(gzfile(tfile), sep="\t", na.strings = ": ", header=F, stringsAsFactors=F)
+  dat <- read.table(gzfile(tfile), sep="\t", na.strings = ": ", header=FALSE, stringsAsFactors=FALSE)
   unlink(tfile)
   colnames(dat) <- as.character(dat[1,])
   dat <- dat[-1,]
