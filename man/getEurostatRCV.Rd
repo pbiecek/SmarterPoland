@@ -34,14 +34,13 @@ See Also as \code{\link{getEurostatTOC}}, \code{\link{getEurostatRaw}}, \code{\l
  tmp <- getEurostatRCV(kod = "educ_iste")
  head(tmp)
  
- t1 <- getEurostatRCV("tsdtr420")
- tmp <- cast(t1, geo ~ time , mean, subset=victim=="KIL_MIO_POP")
- tmp2 <- tmp[c(1:10,14:30),1:19]
- tmp3 <- tmp2
- rownames(tmp3) <- tmp2[,1]
+ t1 <- getEurostatRCV("rail_ac_catvict")
+ tmp <- cast(t1, geo ~ time , mean, subset=victim=="KIL" & pers_inv=="TOTAL" & accident=="TOTAL")
+ tmp3 <- tmp[,1:9]
+ rownames(tmp3) <- tmp3[,1]
  tmp3 <- tmp3[c("UK", "SK", "FR", "PL", "ES", "PT", "LV"),]
- matplot(1991:2008,t(tmp3[,-1]), type="o", pch=19, lty=1, las=1, xlab="", ylab="", yaxt="n")
-
+ matplot(2005:2012,t(tmp3[,-1]), type="o", pch=19, lty=1, las=1, xlab="", ylab="", yaxt="n")
+ axis(2,tmp3[,9], rownames(tmp3), las=1)
 }
 }
 \keyword{ database }
