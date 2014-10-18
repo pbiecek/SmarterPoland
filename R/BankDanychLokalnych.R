@@ -1,9 +1,10 @@
 # Access to Banku Danych Lokalnych
 # through the API in http://mojepanstwo.pl/api/!/bdl/!/bdl/!/bdl/series
-getBDLtree <- function(debug = 0) {
+getBDLtree <- function(debug = 0, raw = FALSE) {
   library(rjson)
   url <- 'http://api.mojepanstwo.pl:80/bdl/tree'
   document <- fromJSON(file=url, method='C')
+  if (raw) return(document)
   
   dgs <- lapply(document, function(d) {
     if (debug >= 1) cat(d$name, "\n")
@@ -19,11 +20,12 @@ getBDLtree <- function(debug = 0) {
   do.call(what = rbind, dgs)
 }
 
-getBDLsearch <- function(query = "", debug = 0) {
+getBDLsearch <- function(query = "", debug = 0, raw = FALSE) {
   library(rjson)
   library(htmltools)
   url <- paste0('http://api.mojepanstwo.pl:80/bdl/search?q=', query)
   document <- fromJSON(file=htmlEscape(url), method='C')
+  if (raw) return(document)
   
   dgs <- lapply(document, function(d) {
     if (debug >= 1) cat(d$hl, "\n")

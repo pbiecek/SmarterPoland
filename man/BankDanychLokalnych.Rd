@@ -8,12 +8,18 @@ Access to the GUS Bank Danych Lokalnych with the use of API developed by MojePan
 Download and parse data from Bank Danych Lokalnych with the use of API developed by MojePanstwo. 
 }
 \usage{
-getBDLtree(debug = 0)
-getBDLsearch(query = "", debug = 0)
+getBDLtree(debug = 0, raw = FALSE)
+getBDLsearch(query = "", debug = 0, raw = FALSE)
 }
 \arguments{
   \item{debug}{
       Level of debug info. 0 for no debug, 1 or 2 for info about processed groups.
+}
+  \item{raw}{
+      If raw = FALSE the the resulting JSON is returned without any transformation. For raw = TRUE results are transformed into a data.frame.
+}
+  \item{query}{
+      A query for DBL search.
 }
 }
 \value{
