@@ -60,6 +60,7 @@ getBDLseries <- function(metric_id = "",
   if (raw) return(document)
   
   met <- t(sapply(document$series, function(s) s$slice))
+  if (nrow(met) == 1) met <- t(met)
   fullmet <- do.call(what = rbind, lapply(1:ncol(met), function(d) {
     tmp <- do.call(what = rbind, document$meta$dimensions[[d]]$options)
     rownames(tmp) <- tmp[,1]
