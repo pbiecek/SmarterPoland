@@ -2,6 +2,8 @@ export(
    # download data from eurostat 
    getEurostatRaw, getEurostatRCV, getEurostatTOC, grepEurostatTOC, getEurostatDictionary,
    # download data from google maps
-   getGoogleMapsAddress
+   getGoogleMapsAddress,
+   # download data from Bank Danych Lokalnych GUS (through MojePanstwo)
+   getBDLtree, getBDLsearch, getBDLseries
 
 )
