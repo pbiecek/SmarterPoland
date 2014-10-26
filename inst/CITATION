@@ -8,9 +8,9 @@ citEntry(entry="misc",
 	 journal = "",
 	 year = "2014",
          textVersion =
-         paste("(Przemyslaw Biecek 2014",
+         paste("Przemyslaw Biecek (2014)",
                "SmarterPoland R package",
-               sep=" ")
+               sep=", ")
          )
 
 
