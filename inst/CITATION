@@ -1,0 +1,16 @@
+citHeader("Kindly cite the SmarterPoland R package as follows:")
+
+citEntry(entry="misc",
+         title = "SmarterPoland R package",
+         author = personList(
+	   person(given ="Przemyslaw", family="Biecek", email = "Przemyslaw.Biecek@gmail.com")
+         ),
+	 journal = "",
+	 year = "2014",
+         textVersion =
+         paste("(Przemyslaw Biecek 2014",
+               "SmarterPoland R package",
+               sep=" ")
+         )
+
+
