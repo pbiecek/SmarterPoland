@@ -71,7 +71,7 @@ getBDLseries <- function(metric_id = "",
     s <- document$series[[sn]]
     tmp <- data.frame(do.call(what = rbind, args = s$series), units = s$units)
     for (i in ncol(met):1)
-      tmp <- data.frame(dimension = met[sn,i], tmp)
+      tmp <- data.frame(dimension = met[sn,i], tmp, row.names = 1:nrow(tmp))
     for (i in 1:ncol(tmp))
       if (class(tmp[,i]) == "list")
         tmp[,i] <- sapply(tmp[,i], '[', 1)
