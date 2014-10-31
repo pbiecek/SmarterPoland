@@ -31,7 +31,7 @@ getWeatherForecast <- function(apiKey, lat = NA, lon = NA, city = NA) {
     }
   }
   
-  forecastJson <- fromJSON(rawToChar(forecast$content))
+  forecastJson <- rjson::fromJSON(rawToChar(forecast$content), method = "C")
   
   now = addWeatherVariables(as.data.frame(forecastJson$currently))
   by.hour = addWeatherVariables(forecastJson$hourly$data)

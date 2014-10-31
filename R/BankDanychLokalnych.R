@@ -45,7 +45,6 @@ getBDLseries <- function(metric_id = "",
                          gmina_id = NULL,
                          meta = NULL,
                          debug = 0, raw = FALSE) {
-  library(rjson)
   library(htmltools)
   
   url <- paste0('http://api.mojepanstwo.pl:80/bdl/series?metric_id=', metric_id)

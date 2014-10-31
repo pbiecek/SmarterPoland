@@ -9,4 +9,4 @@ Description: Tools for accessing and processing datasets presented on the blog S
 LazyLoad: yes
 LazyData: yes 
 License: GPL-3
-Depends: reshape, rjson, dplyr, ggplot2, maps, httr, jsonlite
+Depends: reshape, rjson, dplyr, ggplot2, maps, httr
