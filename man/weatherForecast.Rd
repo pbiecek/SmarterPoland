@@ -54,14 +54,13 @@ prognoza <- getWeatherForecast(apiKey, city='Warsaw')
 ggplot(prognoza$by.hour, aes(y=temperatureCelsius, x=time)) + 
   geom_line() + geom_point() +
   geom_point(data=prognoza$now, size=10, color='red') +
-  theme(axis.text=element_text(size=20),
-        axis.text.x=element_text(angle=90)) + 
-  scale_x_datetime(breaks = date_breaks(width = "1 hour"))
+  theme(title=element_text(size=20),
+        axis.text=element_text(size=20)) + 
+  scale_x_datetime(breaks = date_breaks("3 hour"),
+                   minor_breaks = date_breaks("1 hour"),
+                   labels = date_format("%H:00\n %d/%m")) +
+  ylab("") + xlab("") + ggtitle("Prognoza temperatury dla Warszawy")
 
-ggplot(prognoza$by.day, aes(ymin=temperatureMinCelsius, ymax=temperatureMaxCelsius, x=time)) + 
-  geom_ribbon() +
-  geom_point(data=prognoza$now, size=10, color='red', aes(y=temperatureCelsius, x=min(prognoza$by.day$time), ymin=0, ymax=0)) +
-  theme(axis.text=element_text(size=20)) + xlab("") + ylab("temperatura w C")
 }
 }
 \keyword{ database }
