@@ -47,7 +47,7 @@ getBDLseries(metric_id = "", slice = NULL, time_range = NULL,
 }
 }
 \value{
-The function \code{getBDLtree()} return a data frame with identifiers of resources in Bank Danych Lokalnych.
+The function \code{getBDLtree()} returns a data frame with identifiers of resources in Bank Danych Lokalnych.
 }
 \references{
 The API of Bank Danych Lokalnych developed by MojePanstwo is described as \code{http://mojepanstwo.pl/api/!/bdl/!/bdl/!/bdl/series}
