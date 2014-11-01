@@ -1,7 +1,7 @@
 addWeatherVariables <- function(df) {
   df$temperatureCelsius <- 5*(df$temperature-32)/9
   df$apparentTemperatureCelsius <- 5*(df$apparentTemperature-32)/9
-  df$time <-  as.POSIXct(df$time, origin = "1960-01-01", tz = df$timezone)  
+  df$time <-  as.POSIXct(df$time, origin = "1970-01-01", tz = df$timezone)  
   df
 }
 addWeatherDailyVariables <- function(df) {
@@ -9,11 +9,11 @@ addWeatherDailyVariables <- function(df) {
   df$temperatureMinCelsius <- 5*(df$temperatureMin-32)/9
   df$apparentTemperatureMaxCelsius <- 5*(df$apparentTemperatureMax-32)/9
   df$apparentTemperatureMinCelsius <- 5*(df$apparentTemperatureMin-32)/9
-  df$temperatureMinTime <-  as.POSIXct(df$temperatureMinTime, origin = "1960-01-01", tz = df$timezone)  
-  df$temperatureMaxTime <-  as.POSIXct(df$temperatureMaxTime, origin = "1960-01-01", tz = df$timezone)  
-  df$apparentTemperatureMin <-  as.POSIXct(df$apparentTemperatureMin, origin = "1960-01-01", tz = df$timezone)  
-  df$apparentTemperatureMax <-  as.POSIXct(df$apparentTemperatureMax, origin = "1960-01-01", tz = df$timezone)  
-  df$time <-  as.POSIXct(df$time, origin = "1960-01-01", tz = df$timezone)  
+  df$temperatureMinTime <-  as.POSIXct(df$temperatureMinTime, origin = "1970-01-01", tz = df$timezone)  
+  df$temperatureMaxTime <-  as.POSIXct(df$temperatureMaxTime, origin = "1970-01-01", tz = df$timezone)  
+  df$apparentTemperatureMin <-  as.POSIXct(df$apparentTemperatureMin, origin = "1970-01-01", tz = df$timezone)  
+  df$apparentTemperatureMax <-  as.POSIXct(df$apparentTemperatureMax, origin = "1970-01-01", tz = df$timezone)  
+  df$time <-  as.POSIXct(df$time, origin = "1970-01-01", tz = df$timezone)  
   df
 }
 
