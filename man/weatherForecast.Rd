@@ -10,7 +10,7 @@ Access to weather forecasts with the use of Dark Sky API.
 Access to hourly and daily weather forecasts with the use of Dark Sky API.
 }
 \usage{
-getWeatherForecast(apiKey, lat = NA, lon = NA, city = NA)
+getWeatherForecast(apiKey, lat = NA, lon = NA, city = NA, raw=FALSE)
 }
 \arguments{
   \item{apiKey}{
@@ -24,6 +24,9 @@ getWeatherForecast(apiKey, lat = NA, lon = NA, city = NA)
 }
   \item{city}{
       Instead of lat and lon you may specify name of the city for which prediction has to be made.
+}
+  \item{raw}{
+      If TRUE then no parsing is done. The function getWeatherForecast() just download an forecast and returns it as a list.
 }
 }
 \value{

@@ -18,7 +18,7 @@ addWeatherDailyVariables <- function(df) {
 }
 
 
-getWeatherForecast <- function(apiKey, lat = NA, lon = NA, city = NA) {
+getWeatherForecast <- function(apiKey, lat = NA, lon = NA, city = NA, raw = FALSE) {
   if (!is.na(city)) {
     data(world.cities)
     cityInfo <- world.cities[world.cities$name == city,]
@@ -32,10 +32,32 @@ getWeatherForecast <- function(apiKey, lat = NA, lon = NA, city = NA) {
   }
   
   forecastJson <- rjson::fromJSON(rawToChar(forecast$content), method = "C")
+  if (raw) return(forecastJson)
   
   now = addWeatherVariables(as.data.frame(forecastJson$currently))
-  by.hour = addWeatherVariables(forecastJson$hourly$data)
-  by.day= addWeatherDailyVariables(forecastJson$daily$data)
+  if (class(forecastJson$hourly$data) == "list") {
+    props <- c("time", "summary", "precipProbability", "temperature", "apparentTemperature", "dewPoint", "humidity", "windSpeed")
+    tmp <- do.call(data.frame, lapply(props, function(p) {
+      do.call(rbind, lapply(forecastJson$hourly$data, function(x) x[[p]] ))
+            }))
+    colnames(tmp) = props
+    by.hour = addWeatherVariables(tmp)
+  } else {
+    by.hour = addWeatherVariables(forecastJson$hourly$data)
+  }
+  if (class(forecastJson$hourly$data) == "list") {
+    props <- c("time", "summary", "sunriseTime", "sunsetTime", "temperatureMin", "temperatureMax",
+               "apparentTemperatureMax", "apparentTemperatureMin",
+               "temperatureMaxTime","temperatureMinTime",
+               "dewPoint", "humidity", "windSpeed")
+    tmp <- do.call(data.frame, lapply(props, function(p) {
+      do.call(rbind, lapply(forecastJson$daily$data, function(x) x[[p]] ))
+    }))
+    colnames(tmp) = props
+    by.day= addWeatherDailyVariables(tmp)
+  } else {
+    by.day= addWeatherDailyVariables(forecastJson$daily$data)
+  }
   
   list(now = now, by.hour = by.hour, by.day = by.day)  
 }
