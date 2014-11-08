@@ -22,7 +22,7 @@ getWeatherForecast <- function(apiKey, lat = NA, lon = NA, city = NA) {
   if (!is.na(city)) {
     data(world.cities)
     cityInfo <- world.cities[world.cities$name == city,]
-    forecast <- GET(paste0("https://api.forecast.io/forecast/",apiKey,"/",cityInfo$lat, ",", cityInfo$lon))
+    forecast <- GET(paste0("https://api.forecast.io/forecast/",apiKey,"/",cityInfo$lat, ",", cityInfo$long))
   } else {
     if (!is.na(lat) & !is.na(lon)) {
       forecast <- GET(paste0("https://api.forecast.io/forecast/",apiKey,"/",lat, ",", lon))
