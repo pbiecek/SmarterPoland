@@ -1,8 +1,5 @@
 \name{Dark Sky API for weather forecast}
 \alias{getWeatherForecast}
-\alias{getBDLtree}
-\alias{getBDLtree}
-\alias{getBDLsearch}
 \title{
 Access to weather forecasts with the use of Dark Sky API.
 }
