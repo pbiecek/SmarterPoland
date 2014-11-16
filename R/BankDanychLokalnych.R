@@ -27,8 +27,8 @@ getBDLsearch <- function(query = "", debug = 0, raw = FALSE) {
   
   dgs <- lapply(document, function(d) {
     if (debug >= 1) cat(d$hl, "\n")
-    data.frame(id = d$id, dataset = d$dataset, object_id = d$object_id, 
-      tytul = d$data$tytul,
+    data.frame(id = d$id, dataset = d$dataset, global_id = d$global_id, 
+      tytul = d$data$bdl_wskazniki.tytul,
       urlid = d$`_id`)
   })
   do.call(what = rbind, dgs)
