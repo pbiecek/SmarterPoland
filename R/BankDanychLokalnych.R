@@ -21,10 +21,8 @@ getBDLtree <- function(debug = 0, raw = FALSE) {
 }
 
 getBDLsearch <- function(query = "", debug = 0, raw = FALSE) {
-  library(rjson)
-  library(htmltools)
-  url <- paste0('http://api.mojepanstwo.pl:80/bdl/search?q=', query)
-  document <- fromJSON(file=htmlEscape(url), method='C')
+  url <- paste0('http://api.mojepanstwo.pl:80/bdl/search?q=', htmlEscape(query))
+  document <- fromJSON(file=url, method='C')
   if (raw) return(document)
   
   dgs <- lapply(document, function(d) {
@@ -45,8 +43,6 @@ getBDLseries <- function(metric_id = "",
                          gmina_id = NULL,
                          meta = NULL,
                          debug = 0, raw = FALSE) {
-  library(htmltools)
-  
   url <- paste0('http://api.mojepanstwo.pl:80/bdl/series?metric_id=', metric_id)
   if (!is.null(slice)) url <- paste0(url, "&slice=", htmlEscape(slice))
   if (!is.null(time_range)) url <- paste0(url, "&time_range=", htmlEscape(time_range))
