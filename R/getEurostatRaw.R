@@ -1,6 +1,6 @@
 getEurostatRaw <-
 function(kod = "educ_iste", rowRegExp=NULL, colRegExp=NULL) {
-  adres <- paste("http://epp.eurostat.ec.europa.eu/NavTree_prod/everybody/BulkDownloadListing?sort=1&file=data%2F",kod,".tsv.gz",sep="")
+  adres <- paste("http://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing?sort=1&file=data%2F",kod,".tsv.gz",sep="")
   tfile <- tempfile()
 #  download and read file
   download.file(adres, tfile)
