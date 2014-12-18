@@ -6,5 +6,7 @@ export(
    # download data from Bank Danych Lokalnych GUS (through MojePanstwo)
    getBDLtree, getBDLsearch, getBDLseries,
    # access to weather forecasts through Dark Sky API
-   getWeatherForecast
+   getWeatherForecast,
+   # access to pool results
+   getMillwardBrown
 )
