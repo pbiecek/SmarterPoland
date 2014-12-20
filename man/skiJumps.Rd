@@ -10,6 +10,7 @@ Results from ski jumps, season 2013/2014}
  with small transformations by Przemyslaw Biecek
 }
 \examples{
-head(koty)
+head(skiJumps2013labels)
+head(skiJumps2013)
 }
 \keyword{datasets}
