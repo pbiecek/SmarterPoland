@@ -17,7 +17,7 @@ A data.frame with eight columns
 \item{last.update.of.data, last.table.structure.change, data.start, data.end}{Dates.}
 }
 \references{
-The TOC is downloaded from the \code{http://epp.eurostat.ec.europa.eu/NavTree_prod/everybody/BulkDownloadListing?sort=1&file=table_of_contents_en.txt}
+The TOC is downloaded from the \code{http://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing?sort=1&file=table_of_contents_en.txt}
 }
 \author{
 Przemyslaw Biecek

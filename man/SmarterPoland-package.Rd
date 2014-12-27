@@ -13,8 +13,8 @@ A set of tools developed by the Foundation SmarterPoland.pl. Among all: function
 \tabular{ll}{
 Package: \tab SmarterPoland\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2012-09-24\cr
+Version: \tab 1.4\cr
+Date: \tab 2014-12-24\cr
 License: \tab GPL-3 \cr
 }
 }

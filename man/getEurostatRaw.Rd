@@ -24,7 +24,7 @@ getEurostatRaw(kod = "educ_iste", rowRegExp=NULL, colRegExp=NULL)
 A dataset in data.frame format. First column contains names of cases. Column names usually corresponds to years.
 }
 \references{
-Data is downloaded from \code{http://epp.eurostat.ec.europa.eu/NavTree_prod/everybody/BulkDownloadListing} website.
+Data is downloaded from \code{http://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing} website.
 }
 \author{
 Przemyslaw Biecek

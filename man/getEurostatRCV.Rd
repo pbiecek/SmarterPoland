@@ -21,7 +21,7 @@ getEurostatRCV(kod = "educ_iste", ...)
 A dataset in the molten format with the last column 'value'. See the melt function from reshape package for more details.
 }
 \references{
-Data is downloaded from \code{http://epp.eurostat.ec.europa.eu/NavTree_prod/everybody/BulkDownloadListing} website.
+Data is downloaded from \code{http://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing} website.
 }
 \author{
 Przemyslaw Biecek

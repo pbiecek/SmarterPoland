@@ -18,7 +18,7 @@ getEurostatDictionary(dictname)
 A data.frame with two columns, first with code names and second with full names.
 }
 \references{
-The TOC is downloaded from the \code{http://epp.eurostat.ec.europa.eu/NavTree_prod/everybody/BulkDownloadListing?file=dic....}
+The TOC is downloaded from the \code{http://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing?file=dic....}
 }
 \author{
 Przemyslaw Biecek
