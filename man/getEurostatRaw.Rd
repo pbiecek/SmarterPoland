@@ -7,7 +7,7 @@ Download a dataset from the eurostat database (ec.europa.eu/eurostat).
 Download a dataset from the eurostat database. The dataset is transformed into the tabular format.
 }
 \usage{
-getEurostatRaw(kod = "educ_iste", rowRegExp=NULL, colRegExp=NULL)
+getEurostatRaw(kod = "educ_iste", rowRegExp=NULL, colRegExp=NULL, strip.white = TRUE)
 }
 \arguments{
   \item{kod}{
@@ -18,6 +18,9 @@ getEurostatRaw(kod = "educ_iste", rowRegExp=NULL, colRegExp=NULL)
 }
   \item{colRegExp}{
    If not NULL this regular expression will be used to filter collumns out of downloaded file.
+}
+  \item{strip.white}{
+   Passed to the internal \code{read.table()}. By default it strips white spaces from eurostat values.
 }
 }
 \value{
