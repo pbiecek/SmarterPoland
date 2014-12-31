@@ -1,6 +1,7 @@
 \name{Bank Danych Lokalnych}
 \alias{getBDLtree}
 \alias{getBDLsearch}
+\alias{getBDLseries}
 \title{
 Access to the GUS Bank Danych Lokalnych with the use of API developed by MojePanstwo.
 }
