@@ -76,7 +76,7 @@ getBDLseries <- function(metric_id = "",
   if (!is.null(gmina_id)) url <- paste0(url, "&gmina_id=", htmlEscape(gmina_id))
   if (!is.null(meta)) url <- paste0(url, "&meta=", htmlEscape(meta))
   
-  document <- rjson::fromJSON(file=url, method='C')
+  document <- fromJSON(file=url, method='C')
   if (raw) return(document)
   
   met <- t(sapply(document$series, function(s) s$slice))
