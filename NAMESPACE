@@ -1,3 +1,9 @@
+import(reshape)
+import(rjson)
+import(dplyr)
+import(maps)
+import(httr)
+import(htmltools)
 export(
    # download data from eurostat 
    getEurostatRaw, getEurostatRCV, getEurostatTOC, grepEurostatTOC, getEurostatDictionary,

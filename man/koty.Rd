@@ -1,5 +1,6 @@
 \name{koty_ptaki}
 \alias{koty_ptaki}
+\alias{koty}
 \docType{data}
 \title{Size, habitat, speed and weight of big cats}
 \description{
