@@ -3,10 +3,10 @@
 \alias{getBDLsearch}
 \alias{getBDLseries}
 \alias{BDLtree}
-\title{
-Access to the GUS Bank Danych Lokalnych with the use of API developed by MojePanstwo.
-}
+\title{API to Bank Danych Lokalnych [GUS]}
 \description{
+Access to the GUS Bank Danych Lokalnych with the use of API developed by MojePanstwo.
+
 Download and parse data from Bank Danych Lokalnych with the use of API developed by MojePanstwo. 
 }
 \usage{

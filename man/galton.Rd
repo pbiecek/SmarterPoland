@@ -2,7 +2,7 @@
 \alias{galton}
 \alias{pearson}
 \docType{data}
-\title{Galton's and Pearson's height data for parents and children in centimeters}
+\title{Galton's and Pearson's Height Data for Parents and Children in Centimeters}
 \description{
 
 This is a data set used by Galton in 1885 to study the relationship between a parent's height and their childrens.

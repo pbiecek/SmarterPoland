@@ -1,7 +1,7 @@
 \name{imiona_warszawa}
 \alias{imiona_warszawa}
 \docType{data}
-\title{Names of kids [girls and boys] newborn in Warsaw between 2004 and 2014.}
+\title{Statistics of Names in Warsaw}
 \description{
 Names of kids [girls and boys] newborn in Warsaw between 2004 and 2014.
 

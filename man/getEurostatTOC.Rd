@@ -1,8 +1,6 @@
 \name{getEurostatTOC}
 \alias{getEurostatTOC}
-\title{
-Download a table of contents of eurostat datasets (ec.europa.eu/eurostat).
-}
+\title{Eurostat Table of Contents}
 \description{
 Download a table of contents of eurostat datasets. Note that the values in column 'code' should be used to download a selected dataset.
 }

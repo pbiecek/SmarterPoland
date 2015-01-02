@@ -1,7 +1,7 @@
 \name{auta2012}
 \alias{auta2012}
 \docType{data}
-\title{Over 210 thousands offers of used cars from otoMoto website}
+\title{Used Cars offers}
 \description{
 Over 210 thousands offers of used cars from otoMoto website}
 \author{

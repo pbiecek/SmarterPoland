@@ -1,7 +1,7 @@
 \name{getEurostatRaw}
 \alias{getEurostatRaw}
 \title{
-Download a dataset from the eurostat database (ec.europa.eu/eurostat).  
+Download a Dataset from the Eurostat Database 
 }
 \description{
 Download a dataset from the eurostat database. The dataset is transformed into the tabular format.

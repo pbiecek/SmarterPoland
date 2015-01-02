@@ -2,7 +2,7 @@
 \alias{skiJumps2013}
 \alias{skiJumps2013labels}
 \docType{data}
-\title{Results from ski jumps, season 2013/2014}
+\title{Ski Jumps Results}
 \description{
 Results from ski jumps, season 2013/2014}
 \author{

@@ -2,7 +2,7 @@
 \alias{koty_ptaki}
 \alias{koty}
 \docType{data}
-\title{Size, habitat, speed and weight of big cats}
+\title{Size, Habitat, Speed and Weight of Big Cats}
 \description{
 Size, habitat, speed and weight of big cats}
 \author{

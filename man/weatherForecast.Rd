@@ -1,7 +1,7 @@
 \name{Dark Sky API for weather forecast}
 \alias{getWeatherForecast}
 \title{
-Access to weather forecasts with the use of Dark Sky API.
+Access to Weather Forecasts with the Use of Dark Sky API.
 }
 \description{
 Access to hourly and daily weather forecasts with the use of Dark Sky API.
@@ -11,7 +11,8 @@ getWeatherForecast(apiKey, lat = NA, lon = NA, city = NA, raw=FALSE)
 }
 \arguments{
   \item{apiKey}{
-      You need to have Dark Sky apiKey in order to access weather forecasts. See here: https://developer.forecast.io/ hor more details.
+      You need to have Dark Sky apiKey in order to access weather forecasts. 
+      See here: https://developer.forecast.io/ hor more details.
 }
   \item{lat}{
       The latitude coordinate for which prediction has to be made.
@@ -23,7 +24,8 @@ getWeatherForecast(apiKey, lat = NA, lon = NA, city = NA, raw=FALSE)
       Instead of lat and lon you may specify name of the city for which prediction has to be made.
 }
   \item{raw}{
-      If TRUE then no parsing is done. The function getWeatherForecast() just download an forecast and returns it as a list.
+      If TRUE then no parsing is done. The function getWeatherForecast() 
+      just download an forecast and returns it as a list.
 }
 }
 \value{

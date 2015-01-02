@@ -1,7 +1,7 @@
 \name{getEurostatDictionary}
 \alias{getEurostatDictionary}
 \title{
-Download a dictionary for given coded variable from Eurostat (ec.europa.eu/eurostat).
+Download a Dictionary from the Eurostat Database
 }
 \description{
 Download a dictionary for given coded variable from Eurostat (ec.europa.eu/eurostat). 

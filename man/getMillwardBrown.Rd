@@ -1,6 +1,6 @@
 \name{getMillwardBrown}
 \alias{getMillwardBrown}
-\title{Download pool results from MillwardBrown website}
+\title{MillwardBrown Pool Results}
 \description{
 Download pool results from MillwardBrown website.  
 }

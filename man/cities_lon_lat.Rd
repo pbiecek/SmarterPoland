@@ -1,7 +1,7 @@
 \name{cities_lon_lat}
 \alias{cities_lon_lat}
 \docType{data}
-\title{Long and lat coordinated for largest cities}
+\title{Geocoordinates of Largest Cities}
 \description{
 A subset of world.cities{maps}. Extracted in order to shink number of dependencies. 
 Only cities with pop > 50k are keept.

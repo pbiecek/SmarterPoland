@@ -1,19 +1,23 @@
 \name{getGoogleMapsAddress}
 \alias{getGoogleMapsAddress}
-\title{
-Get geolocalisation (longitude, latitude) of a given adress with the use of Google Maps API
-}
+\title{Geolocalisation with Google Maps}
 \description{
-The Google Maps API is used to determine the geolocalisation (longitude, latitude) of a given adress.
+Get geolocalisation (longitude, latitude) of a given adress 
+with the use of Google Maps API.
+
+The Google Maps API is used to determine the geolocalisation 
+(longitude, latitude) of a given adress.
 }
 \usage{
-getGoogleMapsAddress(street = "Banacha 2", city = "Warszawa", country="Poland", positionOnly = TRUE, delay=1)
+getGoogleMapsAddress(street = "Banacha 2", city = "Warszawa", 
+	country="Poland", positionOnly = TRUE, delay=1)
 }
 \arguments{
   \item{street}{  An address (street and building number)}
   \item{city}{  City}
   \item{country}{  Country}
-  \item{positionOnly}{  What should be returned, vector with longitude, latitude coordinates or the raw result from Google Maps API }
+  \item{positionOnly}{  What should be returned, vector with longitude, 
+  latitude coordinates or the raw result from Google Maps API }
   \item{delay}{  Number of seconds to wait between api calls}
 }
 \value{
