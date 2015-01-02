@@ -6,7 +6,7 @@
 A set of tools developed by the Foundation SmarterPoland.pl
 }
 \description{
-A set of tools developed by the Foundation SmarterPoland.pl. Among all: functions for downloading data from eurostat database ec.europa.eu/eurostat, functions for downloading data from Google Maps, and gtom GUS (Central Statistical Office of Poland).
+A set of tools developed by the Foundation SmarterPoland.pl. Among all: functions for downloading data from eurostat database ec.europa.eu/eurostat, functions for downloading data from Google Maps and from GUS (Central Statistical Office of Poland).
 }
 \details{
 \tabular{ll}{
@@ -26,7 +26,10 @@ http://www.smarterpoland.pl
 }
 \keyword{ package }
 \seealso{
- \code{\link{getEurostatRCV}}
+ \code{\link{getMillwardBrown}}, 
+ \code{\link{getEurostatRCV}}, 
+ \code{\link{getBDLseries}}, 
+ \code{\link{getWeatherForecast}}
 }
 \examples{
 \dontrun{
