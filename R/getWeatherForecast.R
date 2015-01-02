@@ -43,7 +43,7 @@ getWeatherForecast <- function(apiKey, lat = NA, lon = NA, city = NA, raw = FALS
     if (!is.na(lat) & !is.na(lon)) {
       forecast <- GET(paste0("https://api.forecast.io/forecast/",apiKey,"/",lat, ",", lon))
     } else {
-      error("You have to specify city or lat/lon")
+      simpleError("You have to specify city or lat/lon")
     }
   }
   
