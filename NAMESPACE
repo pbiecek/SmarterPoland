@@ -3,6 +3,7 @@ import(dplyr)
 import(maps)
 import(httr)
 import(htmltools)
+import(ggplot2)
 export(
    # download data from eurostat 
    getEurostatRaw, getEurostatRCV, getEurostatTOC, grepEurostatTOC, getEurostatDictionary,
