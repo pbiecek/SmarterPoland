@@ -36,9 +36,9 @@ addWeatherDailyVariables <- function(df) {
 
 getWeatherForecast <- function(apiKey, lat = NA, lon = NA, city = NA, raw = FALSE) {
   if (!is.na(city)) {
-    if (!any(city == rownames(cities_lon_lat)))
+    if (!any(city == rownames(SmarterPoland::cities_lon_lat)))
       simpleError("Cannot find coordinates for this city [this option is only for cities >50k]")
-    cityInfo <- cities_lon_lat[city,]
+    cityInfo <- SmarterPoland::cities_lon_lat[city,]
     forecast <- GET(paste0("https://api.forecast.io/forecast/",apiKey,"/",cityInfo$lat, ",", cityInfo$long))
   } else {
     if (!is.na(lat) & !is.na(lon)) {

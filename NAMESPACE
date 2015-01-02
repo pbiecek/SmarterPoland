@@ -1,6 +1,5 @@
 import(rjson)
 import(httr)
-import(dplyr)
 import(htmltools)
 import(ggplot2)
 export(
