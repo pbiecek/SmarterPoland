@@ -1,8 +1,8 @@
 # Access to Banku Danych Lokalnych
 # through the API in http://mojepanstwo.pl/api/!/bdl/!/bdl/!/bdl/series
+# is using rjson
 getBDLtree <- function(debug = 0, raw = FALSE) {
-  library(rjson)
-  url <- 'http://api.mojepanstwo.pl:80/bdl/tree'
+  url <- 'http://api.mojepanstwo.pl/bdl/tree'
   document <- fromJSON(file=url, method='C')
   if (raw) return(document)
   
@@ -21,8 +21,8 @@ getBDLtree <- function(debug = 0, raw = FALSE) {
 }
 
 getBDLsearch <- function(query = "", debug = 0, raw = FALSE) {
-  url <- paste0('http://api.mojepanstwo.pl:80/bdl/search?q=', htmlEscape(query))
-  document <- fromJSON(file=url, method='C')
+  url <- paste0('http://api.mojepanstwo.pl/bdl/search?q=', htmlEscape(query))
+  document <- rjson::fromJSON(file=url, method='C')
   if (raw) return(document)
   
   # find common attributes
@@ -68,7 +68,7 @@ getBDLseries <- function(metric_id = "",
                          gmina_id = NULL,
                          meta = NULL,
                          debug = 0, raw = FALSE) {
-  url <- paste0('http://api.mojepanstwo.pl:80/bdl/series?metric_id=', metric_id)
+  url <- paste0('http://api.mojepanstwo.pl/bdl/series?metric_id=', metric_id)
   if (!is.null(slice)) url <- paste0(url, "&slice=", htmlEscape(slice))
   if (!is.null(time_range)) url <- paste0(url, "&time_range=", htmlEscape(time_range))
   if (!is.null(wojewodztwo_id)) url <- paste0(url, "&wojewodztwo_id=", htmlEscape(wojewodztwo_id))
@@ -79,7 +79,7 @@ getBDLseries <- function(metric_id = "",
   document <- fromJSON(file=url, method='C')
   if (raw) return(document)
   
-  met <- t(sapply(document$series, function(s) s$slice))
+  met <- t(sapply(document$slices, function(s) s$slice))
   if (nrow(met) == 1) met <- t(met)
   fullmet <- do.call(what = rbind, lapply(1:ncol(met), function(d) {
     tmp <- do.call(what = rbind, document$meta$dimensions[[d]]$options)
@@ -88,8 +88,8 @@ getBDLseries <- function(metric_id = "",
     data.frame(dim=d, tmp)
   }) )
     
-  dgs <- lapply(seq_along(document$series), function(sn) {
-    s <- document$series[[sn]]
+  dgs <- lapply(seq_along(document$slices), function(sn) {
+    s <- document$slices[[sn]]
     tmp <- data.frame(do.call(what = rbind, args = s$series), units = s$units)
     for (i in ncol(met):1)
       tmp <- data.frame(dimension = met[sn,i], tmp, row.names = 1:nrow(tmp))

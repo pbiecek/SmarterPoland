@@ -2,6 +2,7 @@
 \alias{getBDLtree}
 \alias{getBDLsearch}
 \alias{getBDLseries}
+\alias{BDLtree}
 \title{
 Access to the GUS Bank Danych Lokalnych with the use of API developed by MojePanstwo.
 }
@@ -26,25 +27,25 @@ getBDLseries(metric_id = "", slice = NULL, time_range = NULL,
       A query for DBL search.
 }
   \item{metric_id}{
-      Id wskaźnika, do którego mają należeć serie  query	integer.
+      Metric id, if unknown then look for it in DBL tree or DBL search.
 }
   \item{slice}{
-      Tablica id wymiarów, dla których przecięcia zostaną zwrócone dane. Format: [1,34,*]. Uzyj gwiazdki, aby zwrócić serie dla wszystkich punktów wymiaru. Brak argumentów oznacza wszystkie możliwe przecięcia.	query	string.
+      A table with id dimensions, with format [1,34,*]. Use '*' to choose all dimensions (or use empty string).
 }
   \item{time_range}{
-      Podaj rok lub zakres (np. 2000:2010), z którego zostaną zwrócone dane. Brak argumentu oznacza pełen dostępny przedział.	query	string.
+      Year or range (like 2000:2010), empty means - full range.
 }
   \item{wojewodztwo_id}{
-      Id województwa, dla którego zostaną zwrócone dane lub * dla wszystkich	query	integer.
+      Voievodship id or '*' for all.
 }
   \item{powiat_id}{
-      Id powiatu, dla którego zostaną zwrócone dane lub * dla wszystkich	query	integer.
+      County id of '*' for all.
 }
   \item{gmina_id}{
-      Id gminy, dla którego zostaną zwrócone dane lub * dla wszystkich	query	integer.
+      Subcounty id or '*' for all.
 }
   \item{meta}{
-      Czy zwrać metadane odpowiedzi? Wartości: 0/1-domyślne.
+      Should meta data be returned?
 }
 }
 \value{
