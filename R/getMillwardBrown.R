@@ -1,13 +1,13 @@
 get_millwardbrown <- function(url) {
-  download.file(url,destfile = basename(url))
-  doc <- jsonlite::fromJSON(basename(url)) # 
+  doc <- fromJSON(file=url, method = "C")
   return(doc)
 }
 
 get_millwardbrown_detail <- function(x) {
   detailed_url <- paste0('http://wybory.millwardbrown.com/partie-polityczne-parlament-krajowy/',x,'.json')
-  download.file(detailed_url,destfile = basename(detailed_url))
-  doc <- jsonlite::fromJSON(basename(detailed_url)) #jsonlite::
+  doc <- fromJSON(file=detailed_url, method = "C")
+#  download.file(detailed_url,destfile = basename(detailed_url))
+#  doc <- jsonlite::fromJSON(basename(detailed_url)) #jsonlite::
   return(doc)
 }
 
@@ -18,15 +18,20 @@ getMillwardBrown <- function() {
   dane <- get_millwardbrown(main_url)
   
   ## dodatkowe informacje
-  pojedyncze <- lapply(dane$polls$id,get_millwardbrown_detail)
+  ids <- sapply(dane$polls, function(x) x$id)
+  pojedyncze <- lapply(ids,get_millwardbrown_detail)
   
   # to the data frame
-  inds <- which(!is.na(dane$data$name))
-  partie <- dane$data$name[inds]
+  namess <- sapply(dane$data, function(x) x$name)
+  inds <- which(sapply(namess, length) > 0)
+  partie <- unlist(namess[inds])
   lista <- lapply(inds, function(ind) {
-    tmp <- dane$data$data[[ind]]
+#    tmp <- dane$data[[id]]$data
+    tmp <- as.data.frame(t(as.data.frame(dane$data[[ind]]$data)))
+    rownames(tmp) <- NULL
     colnames(tmp) <- c("data", "poparcie")
-    data.frame(tmp, partia = dane$data$name[ind])
+    tmp$partia <- namess[ind]
+    tmp
   })
   do.call(rbind, lista)
 }
