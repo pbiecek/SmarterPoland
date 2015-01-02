@@ -5,11 +5,13 @@ function(kod = "educ_iste", ...) {
   dat2 <- t(as.data.frame(strsplit(as.character(dat[,1]), split=",")))
   cnames <- strsplit(colnames(dat)[1], split="[,\\\\]")[[1]]
   colnames(dat2) <- cnames[-length(cnames)]
-  rownames(dat2) <- dat[,1]
-  rownames(dat) <- dat[,1]
-  dat3 <- data.frame(dat2, dat[,-1])
-  colnames(dat3) <- c(colnames(dat2), colnames(dat)[-1])
-  dat4 <- melt(dat3, id=cnames[-length(cnames)])
-  colnames(dat4)[ncol(dat4)-1] = cnames[length(cnames)]
-  dat4
+
+  measures <- colnames(dat)[-1]
+  df <- do.call("rbind", lapply(measures, function(x) {
+    data.frame(dat2, x, dat[, x])
+  }))
+  rownames(df) <- apply(df[,-ncol(df),drop=FALSE], 1, paste, collapse="_")
+  colnames(df) <- c(cnames, "value")
+  df
 }
+
