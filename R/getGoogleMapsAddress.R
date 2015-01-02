@@ -1,5 +1,4 @@
 getGoogleMapsAddress <-  function(street = "Banacha 2", city = "Warszawa", country="Poland", positionOnly = TRUE, delay=1) {
-  require(rjson)  
   apiHttps  <- paste0("http://maps.googleapis.com/maps/api/geocode/json?address=", street, ",+",city,",+",country,"&sensor=true")
   res <- sapply(apiHttps, function(apiHttp) {
     Sys.sleep(delay)
@@ -11,7 +10,6 @@ getGoogleMapsAddress <-  function(street = "Banacha 2", city = "Warszawa", count
   
 getGoogleMapsSignleAddress <-
 	function(apiHttp, positionOnly = TRUE) {
-	  require(rjson)
     level <- 0
     apiHttp <- gsub(apiHttp, pattern=" ", replacement="\\+")
     jsnip <-fromJSON( file=apiHttp, method = "C" )
