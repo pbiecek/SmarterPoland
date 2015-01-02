@@ -10,7 +10,7 @@ Only cities with pop > 50k are keept.
  Przemyslaw Biecek [based on world.cities]
 }
 \examples{
-\donotrun{
+\dontrun{
 	library(maps)
 	data(world.cities)
 	cities_lon_lat <- world.cities[!duplicated(world.cities$name),]
