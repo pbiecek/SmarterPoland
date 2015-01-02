@@ -1,6 +1,5 @@
 getEurostatRCV <-
 function(kod = "educ_iste", ...) {
-  require(reshape)
   dat <- getEurostatRaw(kod, ...)
   dat2 <- t(as.data.frame(strsplit(as.character(dat[,1]), split=",")))
   cnames <- strsplit(colnames(dat)[1], split="[,\\\\]")[[1]]

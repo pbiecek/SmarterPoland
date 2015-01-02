@@ -18,7 +18,7 @@ getEurostatRCV(kod = "educ_iste", ...)
 }
 }
 \value{
-A dataset in the molten format with the last column 'value'. See the melt function from reshape package for more details.
+A dataset in the molten format with the last column 'value'. 
 }
 \references{
 Data is downloaded from \code{http://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing} website.
