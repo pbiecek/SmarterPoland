@@ -6,7 +6,9 @@ plotGradeStat2D <- function(variabl1, variabl2, Xaxis = "", Yaxis = "", cex.text
   tabProp<- prop.table(tabSum, 2)
   tabCS  <- apply(tabProp, 2, cumsum)
   
-  kolor  <- brewer.pal(ncol(tab),"Set3")
+  kolor  <- c("#8DD3C7", "#FFFFB3", "#BEBADA", "#FB8072", "#80B1D3", "#FDB462", 
+              "#B3DE69", "#FCCDE5", "#D9D9D9", "#BC80BD", "#CCEBC5", "#FFED6F"
+                )[1:ncol(tab)]
   plot(c(0,1),c(0,1),type="n",pch=19,xlab=Xaxis,ylab=Yaxis)
   abline(0,1,col="grey")
   abline(h=seq(0,1,0.2),col="grey95",lty=3)
