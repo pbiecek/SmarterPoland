@@ -1,5 +1,4 @@
 import(rjson)
-import(dplyr)
 import(maps)
 import(httr)
 import(htmltools)

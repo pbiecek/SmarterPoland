@@ -6,15 +6,14 @@
 A set of tools developed by the Foundation SmarterPoland.pl
 }
 \description{
-A set of tools developed by the Foundation SmarterPoland.pl. Among all: functions for downloading data from eurostat database ec.europa.eu/eurostat.
-
+A set of tools developed by the Foundation SmarterPoland.pl. Among all: functions for downloading data from eurostat database ec.europa.eu/eurostat, functions for downloading data from Google Maps, and gtom GUS (Central Statistical Office of Poland).
 }
 \details{
 \tabular{ll}{
 Package: \tab SmarterPoland\cr
 Type: \tab Package\cr
 Version: \tab 1.4\cr
-Date: \tab 2014-12-24\cr
+Date: \tab 2015-01-05\cr
 License: \tab GPL-3 \cr
 }
 }

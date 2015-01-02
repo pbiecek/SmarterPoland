@@ -12,8 +12,3 @@ Full dataset: https://github.com/pbiecek/Diagnoza
 \author{
 Przemyslaw Biecek
 }
-\keyword{package}
-\seealso{
-}
-\examples{
-}
