@@ -12,7 +12,7 @@ A set of tools developed by the Foundation SmarterPoland.pl. Among all: function
 \tabular{ll}{
 Package: \tab SmarterPoland\cr
 Type: \tab Package\cr
-Version: \tab 1.4\cr
+Version: \tab 1.5\cr
 Date: \tab 2015-01-05\cr
 License: \tab GPL-3 \cr
 }
