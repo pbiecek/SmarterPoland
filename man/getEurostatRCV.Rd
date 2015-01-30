@@ -35,11 +35,13 @@ See Also as \code{\link{getEurostatTOC}}, \code{\link{getEurostatRaw}}, \code{\l
  head(tmp)
  
  t1 <- getEurostatRCV("rail_ac_catvict")
- tmp <- cast(t1, geo ~ time , mean, subset=victim=="KIL" & pers_inv=="TOTAL" & accident=="TOTAL")
+ tmp <- cast(t1, geo ~ time , mean, subset=victim=="KIL" & 
+                 pers_inv=="TOTAL" & accident=="TOTAL")
  tmp3 <- tmp[,1:9]
  rownames(tmp3) <- tmp3[,1]
  tmp3 <- tmp3[c("UK", "SK", "FR", "PL", "ES", "PT", "LV"),]
- matplot(2005:2012,t(tmp3[,-1]), type="o", pch=19, lty=1, las=1, xlab="", ylab="", yaxt="n")
+ matplot(2005:2012,t(tmp3[,-1]), type="o", pch=19, lty=1, 
+                 las=1, xlab="", ylab="", yaxt="n")
  axis(2,tmp3[,9], rownames(tmp3), las=1)
 }
 }

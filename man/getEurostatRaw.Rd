@@ -7,7 +7,8 @@ Download a Dataset from the Eurostat Database
 Download a dataset from the eurostat database. The dataset is transformed into the tabular format.
 }
 \usage{
-getEurostatRaw(kod = "educ_iste", rowRegExp=NULL, colRegExp=NULL, strip.white = TRUE)
+getEurostatRaw(kod = "educ_iste", rowRegExp=NULL, colRegExp=NULL, 
+       strip.white = TRUE)
 }
 \arguments{
   \item{kod}{
