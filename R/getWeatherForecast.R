@@ -48,7 +48,7 @@ getWeatherForecast <- function(apiKey, lat = NA, lon = NA, city = NA, raw = FALS
     }
   }
   
-  forecastJson <- fromJSON(rawToChar(forecast$content), method = "C")
+  forecastJson <- rjson::fromJSON(rawToChar(forecast$content), method = "C")
   if (raw) return(forecastJson)
   
   now = addWeatherVariables(as.data.frame(forecastJson$currently))

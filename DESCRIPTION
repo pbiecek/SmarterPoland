@@ -9,4 +9,5 @@ Description: Tools for accessing and processing datasets presented on the blog S
 LazyLoad: yes
 LazyData: yes 
 License: GPL-3
-Depends: R (>= 2.10), rjson, ggplot2, httr, htmltools, jsonlite
+Depends: R (>= 2.10), ggplot2, httr, htmltools
+Imports: jsonlite, rjson

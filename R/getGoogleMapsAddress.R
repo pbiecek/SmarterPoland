@@ -12,19 +12,19 @@ getGoogleMapsSignleAddress <-
 	function(apiHttp, positionOnly = TRUE) {
     level <- 0
     apiHttp <- gsub(apiHttp, pattern=" ", replacement="\\+")
-    jsnip <-fromJSON( file=apiHttp, method = "C" )
+    jsnip <-rjson::fromJSON( file=apiHttp, method = "C" )
     
     if (length(jsnip[[1]]) == 0) {
       apiHttp <- gsub(apiHttp, pattern="[0-9]", replacement="")
-      jsnip <-fromJSON( file=apiHttp, method = "C" )
+      jsnip <- rjson::fromJSON( file=apiHttp, method = "C" )
       level <- 1
       if (length(jsnip[[1]]) == 0) {
         apiHttp <- gsub(apiHttp, pattern="address=[^,]*,", replacement="address=")
-        jsnip <-fromJSON( file=apiHttp, method = "C" )
+        jsnip <- rjson::fromJSON( file=apiHttp, method = "C" )
         level <- 2
         if (length(jsnip[[1]]) == 0) {
           apiHttp <- gsub(apiHttp, pattern="address=[^,]*,", replacement="address=")
-          jsnip <-fromJSON( file=apiHttp, method = "C" )
+          jsnip <- rjson::fromJSON( file=apiHttp, method = "C" )
           level <- 3
         } 
       } 

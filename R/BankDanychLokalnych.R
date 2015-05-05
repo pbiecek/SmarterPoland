@@ -3,7 +3,7 @@
 # is using rjson
 getBDLtree <- function(debug = 0, raw = FALSE) {
   url <- 'http://api.mojepanstwo.pl/bdl/tree'
-  document <- fromJSON(file=url, method='C')
+  document <- rjson::fromJSON(file=url, method='C')
   if (raw) return(document)
   
   dgs <- lapply(document, function(d) {

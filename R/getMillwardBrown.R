@@ -1,11 +1,11 @@
 get_millwardbrown <- function(url) {
-  doc <- fromJSON(file=url, method = "C")
+  doc <- rjson::fromJSON(file=url, method = "C")
   return(doc)
 }
 
 get_millwardbrown_detail <- function(x) {
   detailed_url <- paste0('http://wybory.millwardbrown.com/partie-polityczne-parlament-krajowy/',x,'.json')
-  doc <- fromJSON(file=detailed_url, method = "C")
+  doc <- rjson::fromJSON(file=detailed_url, method = "C")
 #  download.file(detailed_url,destfile = basename(detailed_url))
 #  doc <- jsonlite::fromJSON(basename(detailed_url)) #jsonlite::
   return(doc)

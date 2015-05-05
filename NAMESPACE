@@ -1,4 +1,3 @@
-import(rjson)
 import(httr)
 import(htmltools)
 import(ggplot2)
