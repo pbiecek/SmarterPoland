@@ -21,44 +21,16 @@ getBDLtree <- function(debug = 0, raw = FALSE) {
 }
 
 getBDLsearch <- function(query = "", debug = 0, raw = FALSE) {
-  url <- paste0('http://api.mojepanstwo.pl/bdl/search?q=', htmlEscape(query))
-  document <- rjson::fromJSON(file=url, method='C')
-  if (raw) return(document)
-  
-  # find common attributes
-  ca1 <- lapply(document, function(d) {
-    names(d)[sapply(d, class) != "list"]
-  })
-  ca1n <- names(table(unlist(ca1)))
-  # in tag 'data'
-  ca2 <- lapply(document, function(d) {
-    names(d$data)[sapply(d$data, class) != "list"]
-  })
-  ca2n <- names(table(unlist(ca2)))
-  
-  dgs <- lapply(document, function(d) {
-    if (debug >= 1) cat(d$hl, "\n")
-    # extract only common names
-    lf1 <- lapply(ca1n, function(nam) {
-      if (nam %in% names(d)) {
-        d[[nam]]
-      } else NA
-    })
-    df1 <- as.data.frame(lf1)
-    colnames(df1) <- ca1n
-
-    lf2 <- lapply(ca2n, function(nam) {
-      if (nam %in% names(d$data)) {
-        d$data[[nam]]
-      } else NA
-    })
-    df2 <- as.data.frame(lf2)
-    colnames(df2) <- ca2n
-    cbind(df1, df2)
-  })
-  do.call(what = rbind, dgs)
+  url <- paste0('https://api.mojepanstwo.pl/bdl/search?q=', htmlEscape(query))
+  if (raw) {
+    document <- jsonlite::fromJSON(txt = url,simplifyVector=FALSE)
+    return(document)
+  } 
+  else {
+    document <- jsonlite::fromJSON(txt = url,simplifyDataFrame=TRUE)
+    return(document)
+  }
 }
-
 
 getBDLseries <- function(metric_id = "", 
                          slice = NULL,
