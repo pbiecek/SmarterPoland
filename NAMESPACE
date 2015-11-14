@@ -7,7 +7,7 @@ export(
    # download data from google maps
    getGoogleMapsAddress,
    # download data from Bank Danych Lokalnych GUS (through MojePanstwo)
-   getBDLtree, getBDLsearch, getBDLseries,
+   getBDLtree, getBDLsearch, getBDLseries, getMPgminy,
    # access to weather forecasts through Dark Sky API
    getWeatherForecast,
    # access to pool results

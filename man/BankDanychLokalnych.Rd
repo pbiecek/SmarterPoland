@@ -15,6 +15,7 @@ getBDLsearch(query = "", debug = 0, raw = FALSE)
 getBDLseries(metric_id = "", slice = NULL, time_range = NULL,
             wojewodztwo_id = NULL, powiat_id = NULL, gmina_id = NULL,
             meta = NULL, debug = 0, raw = FALSE)
+getMPgminy(debug = 0)
 }
 \arguments{
   \item{debug}{
@@ -42,13 +43,15 @@ getBDLseries(metric_id = "", slice = NULL, time_range = NULL,
       County id of '*' for all.
 }
   \item{gmina_id}{
-      Subcounty id or '*' for all.
+      Subcounty id or '*' for all. It's internal ID. Use \code{getMPgminy()} to get TERYT codes.
 }
   \item{meta}{
       Should meta data be returned?
 }
 }
 \value{
+The function \code{getMPgminy()} returns a data frame with identifiers id/TERYT for subcountys.
+
 The function \code{getBDLtree()} returns a data frame with identifiers of resources in Bank Danych Lokalnych.
 }
 \references{
@@ -69,6 +72,9 @@ Przemyslaw Biecek
 
  BDLseries <- getBDLseries(metric_id = 1)
  head(BDLseries)
+
+ gminy <- getMPgminy()
+ head(gminy)
 }
 }
 \keyword{ database }

@@ -1,13 +1,49 @@
 # Access to Banku Danych Lokalnych
 # through the API in https://mojepanstwo.pl/api/bdl/
 
+getAllPages <- function(url0, debug=0) {
+  page = 1
+  result <- list()
+  repeat {
+    if (debug>0) cat("page ",page,"\n")
+
+    url <- paste0(url0, page)
+    document <- rjson::fromJSON(file=url, method='C')
+
+    if (length(document$Dataobject) == 0) break()
+    result <- c(result, document$Dataobject)
+    page <- page + 1
+  }
+  result
+}
+
+getMPgminy <- function(debug = 0) {
+  url0 <- 'https://api-v3.mojepanstwo.pl/dane/gminy?limit=500&page='
+  result <- getAllPages(url0, debug=debug)
+
+  tmp <- lapply(result, function(d) {
+    c(id = d$id,
+      nazwa = d$data$gminy.nazwa,
+      teryt = d$data$gminy.teryt,
+      powiat.id = d$data$powiaty.id,
+      wojewodztwo = d$data$wojewodztwa.nazwa,
+      powierzchnia = d$data$gminy.powierzchnia,
+      wydatki_roczne = d$data$gminy.wydatki_roczne,
+      zadluzenie_roczne = d$data$gminy.zadluzenie_roczne,
+      typ_nazwa = d$data$gminy.typ_nazwa,
+      liczba_ludnosci = d$data$gminy.liczba_ludnosci,
+      adres = d$data$gminy.adres)
+  })
+  data.frame(do.call(rbind, tmp), stringsAsFactors = FALSE)
+}
+
 getBDLtree <- function(raw = FALSE) {
-  url <- 'https://api-v3.mojepanstwo.pl/dane/bdl_wskazniki?limit=2000'
+  url0 <- 'https://api-v3.mojepanstwo.pl/dane/bdl_wskazniki?limit=500&page='
+  result <- getAllPages(url0, debug=debug)
 
-  document <- rjson::fromJSON(file=url, method='C')
-  if (raw) return(document)
+  if (raw) return(result)
 
-  tmp <- lapply(document$Dataobject, function(d) {
+  tmp <- lapply(result, function(d) {
     c(id = d$id,
       slug = d$slug,
       opis = d$data$bdl_wskazniki.grupa_tytul,
