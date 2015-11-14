@@ -16,6 +16,8 @@ getBDLseries(metric_id = "", slice = NULL, time_range = NULL,
             wojewodztwo_id = NULL, powiat_id = NULL, gmina_id = NULL,
             meta = NULL, debug = 0, raw = FALSE)
 getMPgminy(debug = 0)
+getMPpowiaty(debug = 0)
+getMPwojewodztwa(debug = 0)
 }
 \arguments{
   \item{debug}{
