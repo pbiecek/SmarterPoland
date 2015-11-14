@@ -40,7 +40,7 @@ getMPgminy(debug = 0)
       Voievodship id or '*' for all.
 }
   \item{powiat_id}{
-      County id of '*' for all.
+      County id of '*' for all. It's internal ID. Use \code{getMPpowiaty()} to get names and other information.
 }
   \item{gmina_id}{
       Subcounty id or '*' for all. It's internal ID. Use \code{getMPgminy()} to get TERYT codes.
@@ -50,7 +50,8 @@ getMPgminy(debug = 0)
 }
 }
 \value{
-The function \code{getMPgminy()} returns a data frame with identifiers id/TERYT for subcountys.
+The function \code{getMPgminy()} returns a data frame with identifiers id/TERYT for each subcounty.
+The function \code{getMPpowiaty()} returns a data frame with identifiers id for each county.
 
 The function \code{getBDLtree()} returns a data frame with identifiers of resources in Bank Danych Lokalnych.
 }
@@ -75,6 +76,9 @@ Przemyslaw Biecek
 
  gminy <- getMPgminy()
  head(gminy)
+
+ powiaty <- getMPpowiaty
+ head(powiaty)
 }
 }
 \keyword{ database }
