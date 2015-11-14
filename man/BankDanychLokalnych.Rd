@@ -7,7 +7,7 @@
 \description{
 Access to the GUS Bank Danych Lokalnych with the use of API developed by MojePanstwo.
 
-Download and parse data from Bank Danych Lokalnych with the use of API developed by MojePanstwo. 
+Download and parse data from Bank Danych Lokalnych with the use of API developed by MojePanstwo.
 }
 \usage{
 getBDLtree(debug = 0, raw = FALSE)
@@ -21,7 +21,7 @@ getBDLseries(metric_id = "", slice = NULL, time_range = NULL,
       Level of debug info. 0 for no debug, 1 or 2 for info about processed groups.
 }
   \item{raw}{
-      If raw = FALSE the the resulting JSON is returned without any transformation. For raw = TRUE results are transformed into a data.frame.
+      If raw = TRUE the resulting JSON is returned without any transformation. For raw = FALSE results are transformed into a data.frame.
 }
   \item{query}{
       A query for DBL search.
@@ -30,7 +30,7 @@ getBDLseries(metric_id = "", slice = NULL, time_range = NULL,
       Metric id, if unknown then look for it in DBL tree or DBL search.
 }
   \item{slice}{
-      A table with id dimensions, with format [1,34,*]. Use '*' to choose all dimensions (or use empty string).
+      A table with id dimensions, with format [1,34,*]. Use '*' to choose all dimensions (or use an empty string).
 }
   \item{time_range}{
       Year or range (like 2000:2010), empty means - full range.
@@ -60,15 +60,16 @@ Przemyslaw Biecek
 \examples{
 \dontrun{
  # the data is downloaded and parsed from Internet
- # not that this dataset is precalcualted in the package
+ # not that this dataset is pre-calculated in the package
  BDLtree <- getBDLtree(2)
  head(BDLtree)
 
  DBLtransport <- getBDLsearch("transport")
  head(DBLtransport)
- 
+
  BDLseries <- getBDLseries(metric_id = 1)
  head(BDLseries)
 }
 }
 \keyword{ database }
+
