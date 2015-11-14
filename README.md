@@ -1,3 +1,6 @@
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/SmarterPoland)](http://cran.r-project.org/web/packages/SmarterPoland)
+[![Downloads](http://cranlogs.r-pkg.org/badges/SmarterPoland)](http://cran.rstudio.com/package=SmarterPoland)
+
 R tools for open data from SmarterPoland foundation
 ===================================================
 
