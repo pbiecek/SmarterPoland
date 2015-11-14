@@ -91,7 +91,7 @@ getBDLseries <- function (metric_id = "", slice = NULL, time_range = NULL, wojew
           powiat_id = NULL, gmina_id = NULL, meta = NULL, debug = 0,
           raw = FALSE)
 {
-  url <- paste0("https://api.mojepanstwo.pl/bdl/series?metric_id=",
+  url <- paste0("https://api-v3.mojepanstwo.pl/bdl/series?metric_id=",
                 metric_id)
   if (!is.null(slice))
     url <- paste0(url, "&slice=", htmlEscape(slice))
