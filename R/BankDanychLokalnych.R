@@ -1,23 +1,19 @@
 # Access to Banku Danych Lokalnych
-# through the API in http://mojepanstwo.pl/api/!/bdl/!/bdl/!/bdl/series
-# is using rjson
-getBDLtree <- function(debug = 0, raw = FALSE) {
-  url <- 'http://api.mojepanstwo.pl/bdl/tree'
+# through the API in https://mojepanstwo.pl/api/bdl/
+
+getBDLtree <- function(raw = FALSE) {
+  url <- 'https://api-v3.mojepanstwo.pl/dane/bdl_wskazniki?limit=2000'
+
   document <- rjson::fromJSON(file=url, method='C')
   if (raw) return(document)
-  
-  dgs <- lapply(document, function(d) {
-    if (debug >= 1) cat(d$name, "\n")
-    ggs <- lapply(d$groups, function(g) {
-      if (debug >= 2) cat("     ", g$name, "\n")
-      sgs <- lapply(g$subgroups, function(s) {
-        c(subgroup = s$name, id = s$`_id`)
-      })
-      data.frame(group = g$name, do.call(what = rbind, sgs))
-    })
-    data.frame(document = d$name, do.call(what = rbind, ggs))
+
+  tmp <- lapply(document$Dataobject, function(d) {
+    c(id = d$id,
+      slug = d$slug,
+      opis = d$data$bdl_wskazniki.grupa_tytul,
+      data_aktualizacji = d$data$bdl_wskazniki.data_aktualizacji)
   })
-  do.call(what = rbind, dgs)
+  data.frame(do.call(rbind, tmp), stringsAsFactors = FALSE)
 }
 
 getBDLsearch <- function(query = "", debug = 0, raw = FALSE) {
@@ -25,32 +21,32 @@ getBDLsearch <- function(query = "", debug = 0, raw = FALSE) {
   if (raw) {
     document <- jsonlite::fromJSON(txt = url,simplifyVector=FALSE)
     return(document)
-  } 
+  }
   else {
     document <- jsonlite::fromJSON(txt = url,simplifyDataFrame=TRUE)
     return(document)
   }
 }
 
-getBDLseries <- function (metric_id = "", slice = NULL, time_range = NULL, wojewodztwo_id = NULL, 
-          powiat_id = NULL, gmina_id = NULL, meta = NULL, debug = 0, 
-          raw = FALSE) 
+getBDLseries <- function (metric_id = "", slice = NULL, time_range = NULL, wojewodztwo_id = NULL,
+          powiat_id = NULL, gmina_id = NULL, meta = NULL, debug = 0,
+          raw = FALSE)
 {
-  url <- paste0("https://api.mojepanstwo.pl/bdl/series?metric_id=", 
+  url <- paste0("https://api.mojepanstwo.pl/bdl/series?metric_id=",
                 metric_id)
-  if (!is.null(slice)) 
+  if (!is.null(slice))
     url <- paste0(url, "&slice=", htmlEscape(slice))
-  if (!is.null(time_range)) 
+  if (!is.null(time_range))
     url <- paste0(url, "&time_range=", htmlEscape(time_range))
-  if (!is.null(wojewodztwo_id)) 
+  if (!is.null(wojewodztwo_id))
     url <- paste0(url, "&wojewodztwo_id=", htmlEscape(wojewodztwo_id))
-  if (!is.null(powiat_id)) 
+  if (!is.null(powiat_id))
     url <- paste0(url, "&powiat_id=", htmlEscape(powiat_id))
-  if (!is.null(gmina_id)) 
+  if (!is.null(gmina_id))
     url <- paste0(url, "&gmina_id=", htmlEscape(gmina_id))
-  if (!is.null(meta)) 
+  if (!is.null(meta))
     url <- paste0(url, "&meta=", htmlEscape(meta))
-  
+
   if (raw) {
     document <- jsonlite::fromJSON(txt = url,
                                    simplifyDataFrame=FALSE)
@@ -67,7 +63,7 @@ getBDLseries <- function (metric_id = "", slice = NULL, time_range = NULL, wojew
       met[,d] <<- unlist(tmp[met[,d],"value"])
       data.frame(dim=d, tmp)
     }) )
-    
+
     dgs <- lapply(seq_along(document$slices), function(sn) {
       s <- document$slices[[sn]]
       tmp <- data.frame(do.call(what = rbind, args = s$series), units = s$units)
