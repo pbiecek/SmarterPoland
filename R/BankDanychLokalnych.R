@@ -60,7 +60,7 @@ getMPwojewodztwa <- function(debug = 0) {
   data.frame(do.call(rbind, tmp), stringsAsFactors = FALSE)
 }
 
-getBDLtree <- function(raw = FALSE) {
+getBDLtree <- function(raw = FALSE, debug = 0) {
   url0 <- 'https://api-v3.mojepanstwo.pl/dane/bdl_wskazniki?limit=500&page='
   result <- getAllPages(url0, debug=debug)
 

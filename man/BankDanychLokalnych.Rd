@@ -10,7 +10,7 @@ Access to the GUS Bank Danych Lokalnych with the use of API developed by MojePan
 Download and parse data from Bank Danych Lokalnych with the use of API developed by MojePanstwo.
 }
 \usage{
-getBDLtree(raw = FALSE)
+getBDLtree(raw = FALSE, debug = 0)
 getBDLsearch(query = "", debug = 0, raw = FALSE)
 getBDLseries(metric_id = "", slice = NULL, time_range = NULL,
             wojewodztwo_id = NULL, powiat_id = NULL, gmina_id = NULL,
