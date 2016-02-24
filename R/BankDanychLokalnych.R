@@ -76,7 +76,7 @@ getBDLtree <- function(raw = FALSE, debug = 0) {
 }
 
 getBDLsearch <- function(query = "", debug = 0, raw = FALSE) {
-  url <- paste0('https://api.mojepanstwo.pl/bdl/search?q=', htmlEscape(query))
+  url <- paste0('https://api-v3.mojepanstwo.pl/bdl/search?q=', htmlEscape(query))
   if (raw) {
     document <- jsonlite::fromJSON(txt = url,simplifyVector=FALSE)
     return(document)
