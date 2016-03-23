@@ -1,13 +1,13 @@
 Package: SmarterPoland
 Type: Package
 Title: Tools for Accessing Various Datasets Developed by the Foundation SmarterPoland.pl
-Version: 1.6
+Version: 1.7
 Date: 2015-11-15
 Author: Przemyslaw Biecek (Foundation SmarterPoland.pl)
 Maintainer: Przemyslaw Biecek <przemyslaw.biecek@gmail.com>
-Description: Tools for accessing and processing datasets presented on the blog SmarterPoland.pl. Among all: functions for downloading data from eurostat database, coordinates from Google Maps and data from GUS (Central Statistical Office of Poland).
+Description: Tools for accessing and processing datasets prepared by the Foundation SmarterPoland.pl. Among all: access to API of Google Maps, Central Statistical Office of Poland, Eurostat, WHO and other sources.
 LazyLoad: yes
 LazyData: yes 
 License: GPL-3
-Depends: R (>= 2.10), ggplot2, httr, htmltools
+Depends: R (>= 3.0), ggplot2, httr, htmltools
 Imports: jsonlite, rjson
