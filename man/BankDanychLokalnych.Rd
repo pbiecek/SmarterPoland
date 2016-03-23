@@ -1,6 +1,7 @@
 \name{Bank Danych Lokalnych}
 \alias{getBDLtree}
 \alias{getBDLsearch}
+\alias{getBDLseries}
 \alias{getMPgminy}
 \alias{getMPpowiaty}
 \alias{getMPwojewodztwa}
