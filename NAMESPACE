@@ -1,6 +1,9 @@
 import(httr)
 import(htmltools)
 import(ggplot2)
+importFrom("graphics", "abline", "legend", "par", "plot", "points", "text")
+importFrom("stats", "addmargins")
+importFrom("utils", "download.file", "read.table")
 export(
    # download data from eurostat 
    getEurostatRaw, getEurostatRCV, getEurostatTOC, grepEurostatTOC, getEurostatDictionary,
