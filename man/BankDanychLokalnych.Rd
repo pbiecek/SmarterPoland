@@ -82,7 +82,7 @@ Przemyslaw Biecek
  gminy <- getMPgminy()
  head(gminy)
 
- powiaty <- getMPpowiaty
+ powiaty <- getMPpowiaty()
  head(powiaty)
 }
 }
