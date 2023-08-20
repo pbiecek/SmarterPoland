@@ -1,8 +1,8 @@
 Package: SmarterPoland
 Type: Package
 Title: Tools for Accessing Various Datasets Developed by the Foundation SmarterPoland.pl
-Version: 1.8
-Author: Przemyslaw Biecek (Foundation SmarterPoland.pl)
+Version: 1.8.1
+Author: Przemyslaw Biecek
 Maintainer: Przemyslaw Biecek <przemyslaw.biecek@gmail.com>
 Description: Tools for accessing and processing datasets prepared by the Foundation SmarterPoland.pl. Among all: access to API of Google Maps, Central Statistical Office of Poland, MojePanstwo, Eurostat, WHO and other sources.
 LazyLoad: yes

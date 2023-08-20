@@ -129,7 +129,7 @@ getBDLseries <- function (metric_id = "", slice = NULL, time_range = NULL, wojew
       for (i in ncol(met):1)
         tmp <- data.frame(dimension = met[sn,i], tmp, row.names = 1:nrow(tmp))
       for (i in 1:ncol(tmp))
-        if (class(tmp[,i]) == "list")
+        if (inherits(tmp[,i],"list"))
           tmp[,i] <- sapply(tmp[,i], '[', 1)
         tmp
     })
