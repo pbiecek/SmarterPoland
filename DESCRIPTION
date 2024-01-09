@@ -11,3 +11,5 @@ LazyDataCompression: xz
 License: GPL-3
 Depends: R (>= 3.0), ggplot2, httr, htmltools
 Imports: jsonlite, rjson
+URL: https://github.com/pbiecek/SmarterPoland
+BugReports: https://github.com/pbiecek/SmarterPoland/issues
